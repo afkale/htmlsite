@@ -60,10 +60,10 @@ def generate_page(
     title = extract_title(from_content)
 
     dest_content = (
-        template_content.replace('href="/', f'href="{basepath}')
-        .replace('src="/', f'src="{basepath}')
-        .replace("{{ Title }}", title)
+        template_content.replace("{{ Title }}", title)
         .replace("{{ Content }}", dest_content)
+        .replace('href="/', f'href="{basepath}')
+        .replace('src="/', f'src="{basepath}')
     )
     dest_path: Path = Path(dest_path)
     dest_path.parent.mkdir(parents=True, exist_ok=True)
